@@ -12,4 +12,8 @@ server.use('/api/project', projectRouter)
 server.use('/api/resource', resourceRouter)
 server.use('/api/task', taskRouter)
 
+server.use('*', (req, res, ) => {
+    res.json({api: 'up'})
+})
+
 module.exports = server
