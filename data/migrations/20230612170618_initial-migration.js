@@ -5,16 +5,20 @@
 exports.up = async function (knex) {
     await knex.schema
         .createTable('project', table => {
-            table.increments()
+            table.increments('project_id')
+            table.string('project_name', 200).notNullable().unique()
         })
         .createTable('resources', table => {
-            table.increments()
+            table.increments('resources_id')
+            table.string('resources_name', 200).notNullable().unique()
         })
         .createTable('task', table => {
-            table.increments()
+            table.increments('task_id')
+            table.string('task_name', 200).notNullable().unique()
         })
         .createTable('project_resources', table => {
-            table.increments()
+            table.increments('project_resources_id')
+            table.string('project_resources_name', 200).notNullable().unique()
         })
 };
 
